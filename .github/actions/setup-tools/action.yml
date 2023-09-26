@@ -1,0 +1,39 @@
+name: Setup tools
+description: Setup tools according to .tool-versions
+
+inputs:
+  gradle-version:
+    description: gradle version
+
+runs:
+  using: "composite"
+  steps:
+    - name: Get tool versions
+      uses: kota65535/github-asdf-parse-action@v1
+      id: versions
+      with:
+        java: "^(?<distribution>\\w+)-(?<major>\\d+)"
+
+    - name: Setup JDK
+      uses: actions/setup-java@v3
+      with:
+        distribution: ${{ steps.versions.outputs.java-distribution }}
+        java-version: ${{ steps.versions.outputs.java-major }}
+
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+
+    - name: Change Gradle version
+      if: ${{ inputs.gradle-version != '' }}
+      run: ./gradlew wrapper --gradle-version=${{ inputs.gradle-version }}
+      shell: bash
+
+    - name: Download Gradle
+      run: ./gradlew help
+      shell: bash
+
+    - name: Configure git
+      run: |
+        git config --global user.name "kota65535"
+        git config --global user.email "kota65535@gmail.com"
+      shell: bash
