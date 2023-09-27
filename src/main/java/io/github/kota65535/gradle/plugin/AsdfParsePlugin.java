@@ -52,9 +52,9 @@ public class AsdfParsePlugin implements Plugin<Project> {
     if (f.exists()) {
       return f;
     } else if (dir.equals(rootDir)) {
-      return getToolVersionsFile(dir.getParentFile(), rootDir);
-    } else {
       return null;
+    } else {
+      return getToolVersionsFile(dir.getParentFile(), rootDir);
     }
   }
 
