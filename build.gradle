@@ -21,15 +21,15 @@ test {
 
 
 gradlePlugin {
-    website = 'https://github.com/kota65535/gradle-asdf-plugin'
-    vcsUrl = 'https://github.com/kota65535/gradle-asdf-plugin'
+    website = 'https://github.com/kota65535/gradle-asdf-parse-plugin'
+    vcsUrl = 'https://github.com/kota65535/gradle-asdf-parse-plugin'
     plugins {
-        asdf {
-            id = 'io.github.kota65535.asdf'
-            displayName = 'Gradle asdf plugin'
+        asdfParse {
+            id = 'io.github.kota65535.asdf-parse'
+            displayName = 'Gradle asdf parser plugin'
             description = 'Gradle plugin to parse asdf .tool-versions file and set the project\'s extra properties'
             tags.set(['asdf'])
-            implementationClass = 'io.github.kota65535.gradle.plugin.AsdfPlugin'
+            implementationClass = 'io.github.kota65535.gradle.plugin.AsdfParsePlugin'
         }
     }
 }
@@ -37,4 +37,3 @@ gradlePlugin {
 javadoc {
     enabled = false
 }
-

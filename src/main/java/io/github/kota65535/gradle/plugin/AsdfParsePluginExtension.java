@@ -3,12 +3,12 @@ package io.github.kota65535.gradle.plugin;
 import java.util.Map;
 import java.util.function.Consumer;
 
-public class AsdfPluginExtension {
+public class AsdfParsePluginExtension {
 
   private final Consumer<Map<String, String>> onPatternsSet;
   private Map<String, String> patterns;
 
-  public AsdfPluginExtension(Consumer<Map<String, String>> onPatternsSet) {
+  public AsdfParsePluginExtension(Consumer<Map<String, String>> onPatternsSet) {
     this.onPatternsSet = onPatternsSet;
   }
 
