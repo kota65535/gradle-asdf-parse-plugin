@@ -1,1 +1,1 @@
-# gradle-asdf-plugin
+# gradle-asdf-parse-plugin
