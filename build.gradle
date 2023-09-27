@@ -1,0 +1,39 @@
+plugins {
+    id 'groovy'
+    id 'java-gradle-plugin'
+    id 'com.gradle.plugin-publish' version '1.2.0'
+}
+
+group = 'io.github.kota65535.gradle.plugin'
+apply from: "release.gradle"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.spockframework:spock-core:2.3-groovy-3.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+
+gradlePlugin {
+    website = 'https://github.com/kota65535/gradle-asdf-parse-plugin'
+    vcsUrl = 'https://github.com/kota65535/gradle-asdf-parse-plugin'
+    plugins {
+        asdfParse {
+            id = 'io.github.kota65535.asdf-parse'
+            displayName = 'Gradle asdf parser plugin'
+            description = 'Gradle plugin to parse asdf .tool-versions file and set the project\'s extra properties'
+            tags.set(['asdf'])
+            implementationClass = 'io.github.kota65535.gradle.plugin.AsdfParsePlugin'
+        }
+    }
+}
+
+javadoc {
+    enabled = false
+}
