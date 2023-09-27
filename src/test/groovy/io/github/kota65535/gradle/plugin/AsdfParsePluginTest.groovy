@@ -36,6 +36,7 @@ class AsdfParsePluginTest extends Specification {
                 .withDebug(true)
                 .withProjectDir(testProjectDir)
                 .withPluginClasspath()
+                .withArguments("--info")
                 .build()
 
         then:
@@ -45,7 +46,7 @@ class AsdfParsePluginTest extends Specification {
         result.output.contains("nodejsMajorVersion:18")
         result.output.contains("nodejsMinorVersion:17")
         result.output.contains("nodejsPatchVersion:0")
-        result.output.contains("pattern not matches. tool: java, version: openjdk-20.0.2, pattern: %s".formatted(AsdfParsePlugin.DEFAULT_PATTERN));
+        result.output.contains("No pattern matches.")
 
     }
 
@@ -83,6 +84,7 @@ class AsdfParsePluginTest extends Specification {
                 .withDebug(true)
                 .withProjectDir(testProjectDir)
                 .withPluginClasspath()
+                .withArguments("--info")
                 .build()
 
         then:

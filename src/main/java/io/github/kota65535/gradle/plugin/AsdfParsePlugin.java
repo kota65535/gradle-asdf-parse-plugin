@@ -92,7 +92,7 @@ public class AsdfParsePlugin implements Plugin<Project> {
       Pattern pattern = Pattern.compile(patternStr);
       Matcher matcher = pattern.matcher(v.getValue());
       if (!matcher.find()) {
-        project.getLogger().warn("pattern not matches. tool: {}, version: {}, pattern: {}", v.getKey(), v.getValue(), patternStr);
+        project.getLogger().info("No pattern matches. tool: {}, version: {}, pattern: {}", v.getKey(), v.getValue(), patternStr);
         continue;
       }
       for (String gn : groupNames) {
