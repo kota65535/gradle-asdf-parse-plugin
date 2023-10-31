@@ -18,9 +18,11 @@ class AsdfParsePluginTest extends Specification {
                 id 'io.github.kota65535.asdf-parse'
             }
             
+            println "pythonVersion:"           + pythonVersion
             println "pythonMajorVersion:"      + pythonMajorVersion
             println "pythonMinorVersion:"      + pythonMinorVersion
             println "pythonPatchVersion:"      + pythonPatchVersion
+            println "nodejsVersion:"           + nodejsVersion
             println "nodejsMajorVersion:"      + nodejsMajorVersion
             println "nodejsMinorVersion:"      + nodejsMinorVersion
             println "nodejsPatchVersion:"      + nodejsPatchVersion
@@ -40,9 +42,11 @@ class AsdfParsePluginTest extends Specification {
                 .build()
 
         then:
+        result.output.contains("pythonVersion:3.11.2")
         result.output.contains("pythonMajorVersion:3")
         result.output.contains("pythonMinorVersion:11")
         result.output.contains("pythonPatchVersion:2")
+        result.output.contains("nodejsVersion:18.17.0")
         result.output.contains("nodejsMajorVersion:18")
         result.output.contains("nodejsMinorVersion:17")
         result.output.contains("nodejsPatchVersion:0")
@@ -65,10 +69,12 @@ class AsdfParsePluginTest extends Specification {
               ]
             }
             
+            println "javaVersion:"             + javaVersion
             println "javaDistribution:"        + javaDistribution
             println "javaMajorVersion:"        + javaMajorVersion
             println "javaMinorVersion:"        + javaMinorVersion
             println "javaPatchVersion:"        + javaPatchVersion
+            println "pythonVersion:"           + pythonVersion
             println "pythonMajorVersion:"      + pythonMajorVersion
             println "pythonMajorMinorVersion:" + pythonMajorMinorVersion
             println "pythonMinorVersion:"      + pythonMinorVersion
@@ -88,10 +94,12 @@ class AsdfParsePluginTest extends Specification {
                 .build()
 
         then:
+        result.output.contains("javaVersion:openjdk-20.0.2")
         result.output.contains("javaDistribution:openjdk")
         result.output.contains("javaMajorVersion:20")
         result.output.contains("javaMinorVersion:0")
         result.output.contains("javaPatchVersion:2")
+        result.output.contains("pythonVersion:3.11.2")
         result.output.contains("pythonMajorVersion:3")
         result.output.contains("pythonMajorMinorVersion:3.11")
         result.output.contains("pythonMinorVersion:11")
