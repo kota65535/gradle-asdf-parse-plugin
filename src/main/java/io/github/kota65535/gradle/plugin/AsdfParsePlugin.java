@@ -95,6 +95,7 @@ public class AsdfParsePlugin implements Plugin<Project> {
         project.getLogger().info("No pattern matches. tool: {}, version: {}, pattern: {}", v.getKey(), v.getValue(), patternStr);
         continue;
       }
+      variables.put(v.getKey() + "Version", matcher.group());
       for (String gn : groupNames) {
         String name = v.getKey() + capitalize(gn);
         String value = matcher.group(gn);
